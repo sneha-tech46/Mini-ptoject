@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<section class="position-relative py-4 py-xl-5">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-5">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <form class="text-center" action="/uservoteridaction/" method="post">
+                            {% csrf_token %}
+                            <div class="mb-3"><input class="form-control" type="text" name="voter_id" placeholder="Enter Voter Id"></div>
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Verify</button></div>
+                            <div class="text-center">
+                                <h6 class="text-dark mb-4">Check your gmail for OTP</h6>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="position-relative py-4 py-xl-5">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6 col-xl-4">
+                <div class="card mb-5">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <form class="text-center" action="/userotpaction/" method="post">
+                            {% csrf_token %}
+                            <div class="mb-3"><input class="form-control" type="text" name="otp" placeholder="Enter OTP"></div>
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Verify</button></div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

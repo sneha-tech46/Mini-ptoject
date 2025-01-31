@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contents %}
+
+<br><br><br><br><br><br><br><br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                <a href="{% url 'facedetect' %}" class="btn btn-primary btn-lg">Face-detect</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

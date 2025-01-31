@@ -1,0 +1,36 @@
+{% extends 'user/userbase.html' %}
+{% load static %}
+{% block contents %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="text-center" style="color:rgb(4, 4, 4)">Parties</h4>
+            {% if message %}
+                <p>{{ message }}</p>
+            {% endif %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th >Leader</th>
+                        <th >foundation_date</th>
+                        <th >Image</th>
+                        <th>Vote</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in data %}
+                    <tr>
+                        <td >{{ user.leader}}</td>
+                        <td >{{ user.foundation_date }}</td>
+                        <td ><img src="{{ user.symbol }}" alt="" width="100px"
+                                height="100px"></td>
+                        <td><a class="btn-link" href="/uservoteparty/?uid={{ user.id }}">Vote</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

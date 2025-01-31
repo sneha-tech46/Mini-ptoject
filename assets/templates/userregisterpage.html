@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contents %}
+
+<div class="container" style="position:absolute; left:0; right:0; top: 50%; transform: translateY(-50%); -ms-transform: translateY(-50%); -moz-transform: translateY(-50%); -webkit-transform: translateY(-50%); -o-transform: translateY(-50%);">
+    <div class="row d-flex d-xl-flex justify-content-center justify-content-xl-center">
+        <div class="col-sm-12 col-lg-10 col-xl-9 col-xxl-7 bg-white shadow-lg" style="border-radius: 5px;">
+            <div class="p-5">
+                <div class="text-center">
+                    <h4 class="text-dark mb-4">Create an User Account!</h4>
+                </div>
+                <form action="/userregisteraction/" class="user" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3"><input class="form-control form-control-user" type="text" name="uname" placeholder="Username" required=""></div>
+                    <div class="mb-3"><input class="form-control form-control-user" type="email" id="email" name="email" placeholder="Email Address" required=""></div>
+                    <div class="row mb-3">
+                        <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="password" name="password" id="password" placeholder="Password" required=""></div>
+                        <div class="col-sm-6"><input class="form-control form-control-user" type="phone" id="phone" name="phone" placeholder="Phone Number" required=""></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 form-group">
+                            <label for="root_image">Upload Image:</label>
+                        <input type="file" class="form-control" id="profile_pic" name="profile_pic" required>
+                        </div>
+                        <div class="col-sm-6"><input class="form-control form-control-user" type="phone" id="voter_id" name="voter_id" placeholder="Voter ID" required=""></div>
+                    
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <p id="emailErrorMsg" class="text-danger" style="display:none;">Paragraph</p>
+                        <p id="passwordErrorMsg" class="text-danger" style="display:none;">Paragraph</p>
+                    </div><button class="btn btn-primary d-block btn-user w-100" id="submitBtn" type="submit">Register Account</button>
+                    <hr>
+                </form>
+                {% if messages %}
+                    {% for message in messages %}
+                        <font color='red'> {{ message }}</font>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
